@@ -4,7 +4,8 @@ import Item from "./Item";
 const App = () => {
   const url = "https://fortniteapi.io/shop?lang=pt-BR";
 
-  const [items, setItems] = useState([]);
+  const [dailyItems, setDailyItems] = useState([]);
+  const [featuredItems, setFeaturedItems] = useState([]);
 
   const getItems = async () => {
     const response = await fetch(url, {
@@ -14,33 +15,45 @@ const App = () => {
       },
     });
     const items = await response.json();
-//important
-    setItems(items.daily);
-//important
 
-    console.log(items);
+    setDailyItems(items.daily);
+    setFeaturedItems(items.featured);
   };
   useEffect(() => {
     getItems();
   }, []);
 
-  // const items = [
-  //   { id: 1, name: "egsdrf" },
-  //   { id: 1, name: "edsadaf" },
-  //   { id: 1, name: "hterteyrf" },
-  //   { id: 1, name: "egerhthertherf" },
-  // ];
-
   return (
-    <div>
-      {items.map((item) => {
-        return (
-          <>
-            <Item className="item" name={item.description} />
-          </>
-        );
-      })}
-    </div>
+    <>
+      <div>
+        <div className="title">
+          <h1>Itens diários</h1>
+        </div>
+        <div className="itemContainer">
+          {dailyItems.map((item) => {
+            return (
+              <>
+              
+                <Item className="item" img={item.full_background} />
+                
+              </>
+            );
+          })}
+        </div>
+        <div className="title">
+          <h1>Itens Especiais</h1>
+        </div>
+        <div className="itemContainer">
+          {featuredItems.map((item) => {
+            return (
+              <>
+                <Item className="item" img={item.full_background}/>
+              </>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
 };
 
