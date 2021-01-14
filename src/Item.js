@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 const Item = props => {
     return (
         <div>
-            <p>{props.name}</p>
+            <img src={props.img}/>
         </div>
     )
 }
 
 Item.propTypes = {
-    name: PropTypes.string
+    img: PropTypes.string
 }
 
 export default Item
