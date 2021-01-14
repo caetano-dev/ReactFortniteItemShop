@@ -11,7 +11,7 @@ const App = () => {
     const response = await fetch(url, {
       method: "GET",
       headers: {
-        Authorization: "317d3abf-1a3d48f7-97c5748f-16174ba3",
+        Authorization: [api key],
       },
     });
     const items = await response.json();
