@@ -1,5 +1,6 @@
 ### work in progress
 
+In order to run this project you will need to have an API key from [fortniteapi.io](https://fortniteapi.io/).
 
 # Getting Started with Create React App
 
