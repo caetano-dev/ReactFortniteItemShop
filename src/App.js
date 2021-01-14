@@ -33,9 +33,7 @@ const App = () => {
           {dailyItems.map((item) => {
             return (
               <>
-              
                 <Item className="item" img={item.full_background} />
-                
               </>
             );
           })}
@@ -47,7 +45,7 @@ const App = () => {
           {featuredItems.map((item) => {
             return (
               <>
-                <Item className="item" img={item.full_background}/>
+                <Item className="item" img={item.full_background} />
               </>
             );
           })}
