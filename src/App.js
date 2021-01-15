@@ -39,7 +39,7 @@ const App = () => {
     <>
       <div>
         <div className="title">
-          <h1>Itens diários</h1>
+          <h1>Itens Diários</h1>
         </div>
         <div className="itemContainer">
           {dailyItems.map((item) => {
