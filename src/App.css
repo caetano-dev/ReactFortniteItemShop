@@ -40,3 +40,13 @@ img {
     row-gap: 0.5rem;
   }
 }
+@media (max-width: 640px) {
+  img {
+    width: 10rem;
+  }
+  .itemContainer {
+    grid-template-columns: repeat(2, auto);
+    column-gap: 0.5rem;
+    row-gap: 0.5rem;
+  }
+}
