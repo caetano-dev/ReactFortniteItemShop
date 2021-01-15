@@ -1,12 +1,13 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
-import {Api} from "./api";
+import { Api } from "./api";
 const App = () => {
   const url = "https://fortniteapi.io/shop?lang=pt-BR";
 
   const [dailyItems, setDailyItems] = useState([]);
   const [featuredItems, setFeaturedItems] = useState([]);
+  const [load, setLoad] = useState(true);
 
   const getItems = async () => {
     const response = await fetch(url, {
@@ -19,11 +20,21 @@ const App = () => {
 
     setDailyItems(items.daily);
     setFeaturedItems(items.featured);
+    setLoad(false);
   };
   useEffect(() => {
     getItems();
   }, []);
 
+  if (load) {
+    return (
+      <>
+        <div className="loading">
+          <h1>Carregando...</h1>
+        </div>
+      </>
+    );
+  }
   return (
     <>
       <div>
@@ -34,7 +45,9 @@ const App = () => {
           {dailyItems.map((item) => {
             return (
               <>
-                <Item className="item" img={item.full_background} />
+                <div key={item.id}>
+                  <Item className="item" img={item.full_background} />
+                </div>
               </>
             );
           })}
@@ -46,7 +59,9 @@ const App = () => {
           {featuredItems.map((item) => {
             return (
               <>
-                <Item className="item" img={item.full_background} />
+                <div key={item.id}>
+                  <Item className="item" img={item.full_background} />
+                </div>
               </>
             );
           })}
