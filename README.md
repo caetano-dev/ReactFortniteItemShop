@@ -1,4 +1,4 @@
-### work in progress
+### Fortnite Item Shop
 
 In order to run this project you will need to have an API key from [fortniteapi.io](https://fortniteapi.io/).
 
