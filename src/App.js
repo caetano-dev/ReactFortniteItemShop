@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import Item from "./Item";
 import { Api } from "./api";
 const App = () => {
-  const url = "https://fortniteapi.io/shop?lang=pt-BR";
+  const url = "https://fortniteapi.io/shop?lang=en";
 
   const [dailyItems, setDailyItems] = useState([]);
   const [featuredItems, setFeaturedItems] = useState([]);
@@ -30,7 +30,7 @@ const App = () => {
     return (
       <>
         <div className="loading">
-          <h1>Carregando...</h1>
+          <h1>Loading...</h1>
         </div>
       </>
     );
@@ -39,7 +39,7 @@ const App = () => {
     <>
       <div>
         <div className="title">
-          <h1>Itens Diários</h1>
+          <h1>Daily Items</h1>
         </div>
         <div className="itemContainer">
           {dailyItems.map((item) => {
@@ -53,7 +53,7 @@ const App = () => {
           })}
         </div>
         <div className="title">
-          <h1>Itens Especiais</h1>
+          <h1>Featured Items</h1>
         </div>
         <div className="itemContainer">
           {featuredItems.map((item) => {
