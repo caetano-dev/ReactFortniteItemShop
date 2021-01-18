@@ -1,16 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-const Item = props => {
-    return (
-        <div>
-            <img src={props.img}/>
-        </div>
-    )
-}
+const Item = (props) => {
+  return (
+    <div>
+      <img src={props.img} />
+    </div>
+  );
+};
 
 Item.propTypes = {
-    img: PropTypes.string
-}
+  img: PropTypes.string,
+};
 
-export default Item
+export default Item;
