@@ -1,7 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
-import { Api } from "./api";
 const App = () => {
   const url = "https://fortniteapi.io/shop?lang=en";
 
@@ -13,7 +12,7 @@ const App = () => {
     const response = await fetch(url, {
       method: "GET",
       headers: {
-        Authorization: Api,
+        Authorization: process.env.API_KEY,
       },
     });
     const items = await response.json();
