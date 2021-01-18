@@ -6,19 +6,23 @@ const App = () => {
 
   const [dailyItems, setDailyItems] = useState([]);
   const [featuredItems, setFeaturedItems] = useState([]);
+  const [specialFeatured, setSpecialFeatured] = useState([]);
+  const [specialDaily, setSpecialDaily] = useState([])
   const [load, setLoad] = useState(true);
 
   const getItems = async () => {
     const response = await fetch(url, {
       method: "GET",
       headers: {
-        Authorization: process.env.API_KEY,
+        Authorization: process.env.API_KEY
       },
     });
     const items = await response.json();
-
+    console.log(items)
     setDailyItems(items.daily);
     setFeaturedItems(items.featured);
+    setSpecialFeatured(items.specialFeatured)
+    setSpecialDaily(items.specialDaily)
     setLoad(false);
   };
   useEffect(() => {
@@ -44,7 +48,7 @@ const App = () => {
           {dailyItems.map((item) => {
             return (
               <>
-                <div key={item.id}>
+                <div key={item.id.toString()}>
                   <Item className="item" img={item.full_background} />
                 </div>
               </>
@@ -58,7 +62,32 @@ const App = () => {
           {featuredItems.map((item) => {
             return (
               <>
-                <div key={item.id}>
+                <div key={item.id.toString()}>
+                  <Item className="item" img={item.full_background} />
+                </div>
+              </>
+            );
+          })}
+        </div>
+        <div className="title">
+          <h1>Special items</h1>
+        </div>
+        <div className="itemContainer">
+          {specialFeatured.map((item) => {
+            return (
+              <>
+                <div key={item.id.toString()}>
+                  <Item className="item" img={item.full_background} />
+                </div>
+              </>
+            );
+          })}
+        </div>
+        <div className="itemContainer">
+          {specialDaily.map((item) => {
+            return (
+              <>
+                <div key={item.id.toString()}>
                   <Item className="item" img={item.full_background} />
                 </div>
               </>
