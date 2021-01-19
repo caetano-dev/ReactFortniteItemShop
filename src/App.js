@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import Item from "./Item";
 import ItemContainer from "./ItemContainer";
 const App = () => {
   const url = "https://fortniteapi.io/shop?lang=en";
@@ -15,11 +14,10 @@ const App = () => {
     const response = await fetch(url, {
       method: "GET",
       headers: {
-        Authorization: process.env.API_KEY,
+        Authorization: process.env.REACT_APP_API_KEY,
       },
     });
     const items = await response.json();
-    console.log(items);
     setDailyItems(items.daily);
     setFeaturedItems(items.featured);
     setSpecialFeatured(items.specialFeatured);
