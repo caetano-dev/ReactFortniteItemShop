@@ -1,0 +1,14 @@
+.Item img {
+  width: 15rem;
+}
+
+@media (max-width: 830px) {
+  .Item img {
+    width: 14rem;
+  }
+}
+@media (max-width: 640px) {
+  .Item img {
+    width: 10rem;
+  }
+}
