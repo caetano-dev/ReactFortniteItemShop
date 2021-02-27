@@ -1,6 +1,6 @@
-import "./App.css";
+import "./styles/App.css";
 import React, { useState, useEffect } from "react";
-import ItemContainer from "./ItemContainer";
+import ItemContainer from "./components/ItemContainer";
 const App = () => {
   const url = "https://fortniteapi.io/shop?lang=en";
 
